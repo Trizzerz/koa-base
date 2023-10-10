@@ -4,6 +4,8 @@ const ratelimit = require('koa-ratelimit');
 const { LRUCache } = require('lru-cache')
 const koaCash = require('koa-cash');
 
+const PORT = process.env.PORT || 3030;
+
 const router = require('./router');
 
 const cache = new LRUCache({
@@ -78,4 +80,4 @@ app
     .use(bodyParser())
     .use(router.routes())
 
-app.listen(3000);
+app.listen(PORT);
