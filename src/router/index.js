@@ -2,7 +2,9 @@ const Router = require('@koa/router');
 const userRouter = require('./user');
 const projectRouter = require('./project');
 
-const router = new Router();
+const { apiVersion } = require('../../package.json');
+
+const router = new Router({ prefix: `/${apiVersion}`});
 
 router
     .use(userRouter.routes())
